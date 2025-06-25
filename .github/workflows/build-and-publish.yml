@@ -35,7 +35,9 @@ jobs:
         run: dotnet test WebApi.sln --configuration Release --no-restore
         
       - name: Pack NuGet packages
-        run: dotnet pack WebApi.sln --configuration Release --no-build --output ./packages /p:Version=${{ env.Major }}.${{ env.Minor }}.${{ env.Version }}
+        run: |
+          dotnet pack Host/Host.csproj --configuration Release --no-restore --output packages /p:Version=${{ env.Major }}.${{ env.Minor }}.${{ env.Version }}
+          dotnet pack Host.Testing/Host.Testing.csproj --configuration Release --no-restore --output packages /p:Version=${{ env.Major }}.${{ env.Minor }}.${{ env.Version }}
 
       - name: Push NuGet packages
         run: dotnet nuget push "packages/*.nupkg" --source https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json --api-key ${{ github.token }} --skip-duplicate
