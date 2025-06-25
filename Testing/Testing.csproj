@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Common.JsonSerialization" Version="1.0.6" />
+        <PackageReference Include="Observability.Logging.TestingUtilities" Version="1.0.4" />
+        <PackageReference Include="Testing.Bdd" Version="1.0.3" />
+        <PackageReference Include="coverlet.collector" Version="6.0.4"/>
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.3.0"/>
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="9.0.6" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
+        <PackageReference Include="NUnit.Analyzers" Version="4.9.1"/>
+        <PackageReference Include="NUnit3TestAdapter" Version="5.0.0"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Using Include="NUnit.Framework"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Host.Testing\Host.Testing.csproj" />
+        <ProjectReference Include="..\Testing.Host\Testing.Host.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="WebApiSteps.cs">
+        <DependentUpon>WebApiShould.cs</DependentUpon>
+      </Compile>
+      <Compile Update="WebApiCorsSteps.cs">
+        <DependentUpon>WebApiCorsShould.cs</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
+</Project>

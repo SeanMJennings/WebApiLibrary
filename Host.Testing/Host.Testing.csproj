@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <PackageId>WebHost.Testing</PackageId>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <RootNamespace>WebHostTesting</RootNamespace>
+        <AssemblyName>WebHostTesting</AssemblyName>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.3.0"/>
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="9.0.6" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Host\Host.csproj" />
+    </ItemGroup>
+</Project>

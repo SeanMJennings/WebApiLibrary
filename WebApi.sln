@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Host", "Host\Host.csproj", "{A66FBF72-0ABE-4E6E-A095-246D2128D466}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing", "Testing\Testing.csproj", "{40A18382-80BF-407F-964E-A9ECE01B2788}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing.Host", "Testing.Host\Testing.Host.csproj", "{087EC0DE-A9A4-48D0-B28D-EC1A561A4B32}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Host.Testing", "Host.Testing\Host.Testing.csproj", "{D9B2793B-301B-4F87-B8DD-2346BFC8D157}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution", "Solution", "{5FABA493-A1E4-40E6-A5FB-FBF3AA63E983}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+		nuget.config = nuget.config
+		.gitignore = .gitignore
+		.github\workflows\build-and-publish.yml = .github\workflows\build-and-publish.yml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A66FBF72-0ABE-4E6E-A095-246D2128D466}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A66FBF72-0ABE-4E6E-A095-246D2128D466}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A66FBF72-0ABE-4E6E-A095-246D2128D466}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A66FBF72-0ABE-4E6E-A095-246D2128D466}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40A18382-80BF-407F-964E-A9ECE01B2788}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40A18382-80BF-407F-964E-A9ECE01B2788}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40A18382-80BF-407F-964E-A9ECE01B2788}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40A18382-80BF-407F-964E-A9ECE01B2788}.Release|Any CPU.Build.0 = Release|Any CPU
+		{087EC0DE-A9A4-48D0-B28D-EC1A561A4B32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{087EC0DE-A9A4-48D0-B28D-EC1A561A4B32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{087EC0DE-A9A4-48D0-B28D-EC1A561A4B32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{087EC0DE-A9A4-48D0-B28D-EC1A561A4B32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9B2793B-301B-4F87-B8DD-2346BFC8D157}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9B2793B-301B-4F87-B8DD-2346BFC8D157}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9B2793B-301B-4F87-B8DD-2346BFC8D157}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9B2793B-301B-4F87-B8DD-2346BFC8D157}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

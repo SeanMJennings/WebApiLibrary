@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <PackageId>WebHost</PackageId>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <RootNamespace>WebHost</RootNamespace>
+        <AssemblyName>WebHost</AssemblyName>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Common.Host" Version="1.0.6" />
+        <PackageReference Include="Observability.Logging.Serilog.AspNet" Version="1.0.4" />
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="9.0.6" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.1" />
+    </ItemGroup>
+</Project>
