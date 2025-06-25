@@ -10,9 +10,9 @@ permissions:
   contents: read
 
 env:
-  MAJOR: '1'
-  MINOR: '0'
-  VERSION: '${{ github.run_number }}'
+  Major: '1'
+  Minor: '0'
+  Version: '${{ github.run_number }}'
 
 jobs:
   build:
