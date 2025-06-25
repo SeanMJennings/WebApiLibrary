@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>net9.0</TargetFramework>
-        <PackageId>WebHost.Testing</PackageId>
+        <PackageId>WebApi.Host.Testing</PackageId>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <RootNamespace>WebHostTesting</RootNamespace>
