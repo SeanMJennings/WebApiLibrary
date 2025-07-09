@@ -119,7 +119,8 @@ public partial class WebApiShould : WebApiSpecification
     {
         responseCode.ShouldBe(HttpStatusCode.InternalServerError);
         var content = JsonSerialization.Deserialize<ApiError>(reponseContent.ReadAsStringAsync().Await());
-        content.ShouldBeNull();
+        content.Message.ShouldBe("An unexpected error occurred.");
+        content.Errors.ShouldBeEmpty();
     }
     
     private void default_error_handling_for_validation_exceptions_is_evident_in_the_response()

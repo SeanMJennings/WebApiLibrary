@@ -7,14 +7,17 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Common.JsonSerialization" Version="1.0.6" />
-        <PackageReference Include="Observability.Logging.TestingUtilities" Version="1.0.4" />
-        <PackageReference Include="Testing.Bdd" Version="1.0.3" />
+        <PackageReference Include="Common.JsonSerialization" Version="1.0.7" />
+        <PackageReference Include="Observability.Logging.TestingUtilities" Version="1.0.6" />
+        <PackageReference Include="Testing.Bdd" Version="1.0.4" />
         <PackageReference Include="coverlet.collector" Version="6.0.4"/>
         <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.3.0"/>
-        <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="9.0.6" />
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="9.0.7" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
-        <PackageReference Include="NUnit.Analyzers" Version="4.9.1"/>
+        <PackageReference Include="NUnit.Analyzers" Version="4.9.2">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
         <PackageReference Include="NUnit3TestAdapter" Version="5.0.0"/>
     </ItemGroup>
 

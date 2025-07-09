@@ -1,9 +1,9 @@
-﻿using Common.Environment;
+﻿using System.Text.Json.Serialization;
+using Common.Environment;
 using Logging.Serilog.Aspnet;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Newtonsoft.Json;
 
 namespace WebHost;
 

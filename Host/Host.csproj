@@ -10,9 +10,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Common.Host" Version="1.0.6" />
-        <PackageReference Include="Observability.Logging.Serilog.AspNet" Version="1.0.4" />
-        <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="9.0.6" />
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.1" />
+        <PackageReference Include="Common.Host" Version="1.0.7" />
+        <PackageReference Include="Observability.Logging.Serilog.AspNet" Version="1.0.6" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.3" />
     </ItemGroup>
 </Project>

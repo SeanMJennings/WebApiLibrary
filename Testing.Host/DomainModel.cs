@@ -1,5 +1,5 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+﻿using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Testing.Host;
 
@@ -28,17 +28,50 @@ public class AnotherDomainModel
 
 public class AnotherDomainModelConverter : JsonConverter<AnotherDomainModel>
 {
-    public override void WriteJson(JsonWriter writer, AnotherDomainModel? value, JsonSerializer serializer)
+    public override void Write(Utf8JsonWriter writer, AnotherDomainModel value, JsonSerializerOptions options)
     {
-        value!.UpdateStringProperty($"{value.StringProperty}-customserialization");
-        var jsonString = @"{
-            ""StringProperty"": """ + value.StringProperty + @"""
-        }";
-        JValue.CreateString(jsonString).WriteTo(writer);
+        value.UpdateStringProperty($"{value.StringProperty}-customserialization");
+        writer.WriteStartObject();
+        writer.WriteString("StringProperty", value.StringProperty);
+        writer.WriteEndObject();
     }
 
-    public override AnotherDomainModel ReadJson(JsonReader reader, Type objectType, AnotherDomainModel? existingValue, bool hasExistingValue, JsonSerializer serializer)
+    public override AnotherDomainModel Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
     {
-        return JsonSerialization.Deserialize<AnotherDomainModel>(reader.Value!.ToString()!);
+        if (reader.TokenType != JsonTokenType.StartObject)
+        {
+            throw new JsonException("Expected start of object");
+        }
+        
+        var model = new AnotherDomainModel();
+        
+        while (reader.Read())
+        {
+            if (reader.TokenType == JsonTokenType.EndObject)
+            {
+                return model;
+            }
+            
+            if (reader.TokenType != JsonTokenType.PropertyName)
+            {
+                throw new JsonException("Expected property name");
+            }
+            
+            var propertyName = reader.GetString()!;
+            reader.Read();
+            
+            switch (propertyName)
+            {
+                case "StringProperty":
+                    var value = reader.GetString()!;
+                    model.UpdateStringProperty(value);
+                    break;
+                default:
+                    reader.Skip();
+                    break;
+            }
+        }
+        
+        throw new JsonException("Expected end of object");
     }
 }

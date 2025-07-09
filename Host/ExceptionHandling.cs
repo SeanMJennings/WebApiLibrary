@@ -29,8 +29,8 @@ internal static class ExceptionHandling
                 context.Response.StatusCode = (int)statusCode;
 
                 if (statusCode == HttpStatusCode.InternalServerError) Logger.LogErrorThatWillTriggerAnAlert("UnexpectedException", feature.Error);
-                
-                return apiError == ApiError.Empty ? context.Response.CompleteAsync() : context.Response.WriteAsync(JsonSerialization.Serialize(apiError));
+
+                return context.Response.WriteAsync(JsonSerialization.Serialize(apiError));
             }
         });
     }
