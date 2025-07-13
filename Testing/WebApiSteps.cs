@@ -2,7 +2,7 @@
 using Common.Environment;
 using Alerting;
 using BDD;
-using Serilog;
+using Microsoft.Extensions.Logging;
 using Shouldly;
 using Testing.Host;
 using Testing.Host.Apis;
@@ -153,6 +153,6 @@ public partial class WebApiShould : WebApiSpecification
 
     private void logging_should_be_configured()
     {
-        services.GetService(typeof(ILogger)).ShouldBeAssignableTo<Serilog.Core.Logger>();
+        services.GetService(typeof(ILogger)).ShouldNotBeNull();
     }
 }
