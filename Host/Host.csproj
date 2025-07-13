@@ -10,8 +10,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Common.Host" Version="1.0.8" />
-        <PackageReference Include="Observability.Logging.Serilog.OpenTelemetry.AspNet" Version="1.0.12" />
+        <PackageReference Include="Common.Host" Version="1.0.10" />
+        <PackageReference Include="Observability.OpenTelemetry.AspNet" Version="1.0.16" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.3" />
     </ItemGroup>
 </Project>

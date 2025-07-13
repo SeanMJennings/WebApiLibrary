@@ -1,9 +1,9 @@
 ﻿using System.Text.Json.Serialization;
 using Common.Environment;
-using Logging.Serilog.OpenTelemetry.AspNet;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Observability.OpenTelemetry.AspNet;
 
 namespace WebHost;
 
@@ -41,10 +41,9 @@ public abstract class WebApi
         
         if (IsNotLocalTestingOrBuildPipeline() && !string.IsNullOrWhiteSpace(ApplicationInsightsConnectionString))
         {
-            builder.ConfigureOpenTelemetry(ApplicationInsightsConnectionString);
+            builder.ConfigureOpenTelemetry(ApplicationInsightsConnectionString, ApplicationName);
         }
         
-        builder.ConfigureSerilog(ApplicationName);
         builder.Services.AddEndpointsApiExplorer();
         
         if (IsNotProduction())
@@ -53,8 +52,11 @@ public abstract class WebApi
         }
         
         app = builder.Build();
-        app.ConfigureSerilogGlobally();
-        app.UseSerilogForHttpRequestLogging();
+        
+        if (IsNotLocalTestingOrBuildPipeline() && !string.IsNullOrWhiteSpace(ApplicationInsightsConnectionString))
+        {
+            app.ConfigureGlobalLogger();
+        }
         
         app.MapExceptionsToApiError();
         
