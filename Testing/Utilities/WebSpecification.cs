@@ -13,10 +13,9 @@ namespace Testing.Utilities;
 public abstract class WebApiSpecification : Specification
 {
     protected IntegrationWebApplicationFactory<Program>? factory;
-    protected IServiceProvider services;
     protected HttpClient? client;
     protected HttpStatusCode responseCode;
-    protected HttpContent reponseContent = null!;
+    protected HttpContent responseContent = null!;
     protected HttpHeaders responseHeaders = null!;
     protected string capturedMessage = null!;
     protected Exception capturedException = null!;
@@ -29,12 +28,11 @@ public abstract class WebApiSpecification : Specification
         factory?.Dispose();
         client?.Dispose();
         factory = new IntegrationWebApplicationFactory<Program>();
-        services = factory.Services;
         client = factory.CreateClient();
         responseCode = default;
         client.DefaultRequestHeaders.Authorization = null;
         client.BaseAddress = new Uri(client.BaseAddress!.ToString().Replace("http", "https"));
-        reponseContent = null!;
+        responseContent = null!;
         responseHeaders = null!;
         capturedMessage = null!;
         capturedException = null!;
@@ -54,7 +52,6 @@ public abstract class WebApiSpecification : Specification
         Environment.SetEnvironmentVariable("ApiType", string.Empty);
         factory?.Dispose();
         client?.Dispose();
-        services = null!;
     }
     
     protected override void after_all()
@@ -62,7 +59,6 @@ public abstract class WebApiSpecification : Specification
         base.after_all();
         factory?.Dispose();
         client?.Dispose();
-        services = null!;
     }
     
     protected virtual void an_api(){}

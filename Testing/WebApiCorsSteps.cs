@@ -36,7 +36,7 @@ public partial class WebApiCorsShould : WebApiSpecification
 
         var response = client!.SendAsync(request).Await();
         responseCode = response.StatusCode;
-        reponseContent = response.Content;
+        responseContent = response.Content;
         responseHeaders = response.Headers;
     }
 
