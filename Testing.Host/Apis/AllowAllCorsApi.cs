@@ -6,7 +6,7 @@ public class AllowAllCorsApi(WebApplicationBuilder builder, IConfiguration confi
 {
     private readonly IConfiguration _configuration = configuration;
     protected override string ApplicationName => "AllowAllCorsApi";
-    protected override string ApplicationInsightsConnectionString => _configuration["ApplicationInsights:ConnectionString"] ?? string.Empty;
+    protected override string TelemetryConnectionString => _configuration["ApplicationInsights:ConnectionString"] ?? string.Empty;
 
     protected override void ConfigureServices(IServiceCollection services)
     {

@@ -13,7 +13,7 @@ public abstract class WebApi
     private WebApplication app = null!;
     private readonly IConfiguration configuration;
     protected abstract string ApplicationName { get; }
-    protected abstract string ApplicationInsightsConnectionString { get; }
+    protected abstract string TelemetryConnectionString { get; }
     protected virtual List<JsonConverter> JsonConverters { get; } = [];
     
     protected WebApi(WebApplicationBuilder webApplicationBuilder, IConfiguration configuration)
@@ -39,9 +39,9 @@ public abstract class WebApi
         builder.Services.EnforceDefaultSerialisation(JsonConverters);
         builder.Services.EnforceDefaultExceptionHandling();
         
-        if (IsNotLocalTestingOrBuildPipeline() && !string.IsNullOrWhiteSpace(ApplicationInsightsConnectionString))
+        if (IsNotLocalTestingOrBuildPipeline() && !string.IsNullOrWhiteSpace(TelemetryConnectionString))
         {
-            builder.ConfigureOpenTelemetry(ApplicationInsightsConnectionString, ApplicationName);
+            builder.ConfigureOpenTelemetry(TelemetryConnectionString, ApplicationName);
         }
         
         builder.Services.AddEndpointsApiExplorer();
@@ -53,7 +53,7 @@ public abstract class WebApi
         
         app = builder.Build();
         
-        if (IsNotLocalTestingOrBuildPipeline() && !string.IsNullOrWhiteSpace(ApplicationInsightsConnectionString))
+        if (IsNotLocalTestingOrBuildPipeline() && !string.IsNullOrWhiteSpace(TelemetryConnectionString))
         {
             app.ConfigureGlobalLogger();
         }

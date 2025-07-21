@@ -7,7 +7,7 @@ public class DefaultApi(WebApplicationBuilder builder, IConfiguration configurat
 {
     private readonly IConfiguration _configuration = configuration;
     protected override string ApplicationName => "DefaultApi";
-    protected override string ApplicationInsightsConnectionString => _configuration["ApplicationInsights:ConnectionString"] ?? string.Empty;
+    protected override string TelemetryConnectionString => _configuration["ApplicationInsights:ConnectionString"] ?? string.Empty;
     protected override List<JsonConverter> JsonConverters { get; } = [new AnotherDomainModelConverter()];
     protected override void ConfigureServices(IServiceCollection services)
     {

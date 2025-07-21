@@ -6,7 +6,7 @@ public class AllowNoCorsApi(WebApplicationBuilder builder, IConfiguration config
 {
     private readonly IConfiguration _configuration = configuration;
     protected override string ApplicationName => "AllowANoCorsApi";
-    protected override string ApplicationInsightsConnectionString => _configuration["ApplicationInsights:ConnectionString"] ?? string.Empty;
+    protected override string TelemetryConnectionString => _configuration["ApplicationInsights:ConnectionString"] ?? string.Empty;
     protected override void ConfigureServices(IServiceCollection services)
     {
         services.AddSingleton<IAmAService, BoopService>();
