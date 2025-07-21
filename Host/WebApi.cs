@@ -40,7 +40,7 @@ public abstract class WebApi
         
         if (IsNotLocalTestingOrBuildPipeline() && !string.IsNullOrWhiteSpace(TelemetryConnectionString))
         {
-            builder.ConfigureOpenTelemetry(TelemetryConnectionString, ApplicationName);
+            builder.ConfigureOpenTelemetry(ApplicationName);
         }
         
         builder.Services.AddEndpointsApiExplorer();
