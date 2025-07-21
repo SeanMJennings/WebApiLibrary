@@ -35,7 +35,6 @@ public abstract class WebApi
     private void Setup()
     {
         builder.Configuration.AddConfiguration(configuration);
-        ConfigureServices(builder.Services);
         builder.Services.EnforceDefaultSerialisation(JsonConverters);
         builder.Services.EnforceDefaultExceptionHandling();
         
@@ -50,6 +49,7 @@ public abstract class WebApi
         {
             builder.Services.AddSwaggerGen();
         }
+        ConfigureServices(builder.Services);
         
         app = builder.Build();
         
