@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Observability.OpenTelemetry.AspNet;
+using OpenTelemetry;
 
 namespace WebHost;
 
@@ -30,6 +31,11 @@ public abstract class WebApi
 
     protected virtual void ConfigureServices(IServiceCollection services){}
     
+    protected virtual OpenTelemetryBuilder ConfigureTelemetry(WebApplicationBuilder builder)
+    {
+        return builder.ConfigureOpenTelemetry(ApplicationName);
+    }
+    
     protected virtual void ConfigureApplication(WebApplication theApp){}
     
     private void Setup()
@@ -37,19 +43,19 @@ public abstract class WebApi
         builder.Configuration.AddConfiguration(configuration);
         builder.Services.EnforceDefaultSerialisation(JsonConverters);
         builder.Services.EnforceDefaultExceptionHandling();
-        
-        if (IsNotLocalTestingOrBuildPipeline() && !string.IsNullOrWhiteSpace(TelemetryConnectionString))
-        {
-            builder.ConfigureOpenTelemetry(ApplicationName);
-        }
-        
         builder.Services.AddEndpointsApiExplorer();
         
         if (IsNotProduction())
         {
             builder.Services.AddSwaggerGen();
         }
+        
         ConfigureServices(builder.Services);
+        
+        if (IsNotLocalTestingOrBuildPipeline() && !string.IsNullOrWhiteSpace(TelemetryConnectionString))
+        {
+            builder.ConfigureOpenTelemetry(ApplicationName);
+        }
         
         app = builder.Build();
         
