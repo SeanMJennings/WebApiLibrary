@@ -1,6 +1,6 @@
 # WebApi
 
-Dotnet packages for web APIs.
+Web API libraries for dotnet.
 
-Web APIs can use and extend this API template.
-This template provides standardised logging, serialising, exception handling, swagger generation and behaviours we want to ensure are always present.
+This API template is for WEB APIs.
+Standardised logging, serialising, exception handling, swagger generation and other core behaviours are provided.
