@@ -72,6 +72,7 @@ public abstract class WebApi
             app.UseSwaggerUI();
         }
         
+        app.UseAuthentication();
         app.UseAuthorization();
         ConfigureApplication(app);
         app.MapControllers();
