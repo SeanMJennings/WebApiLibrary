@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net9.0</TargetFramework>
+        <TargetFramework>net10.0</TargetFramework>
         <PackageId>WebApi.Host</PackageId>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
@@ -10,8 +10,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Common.Host" Version="1.0.10" />
-        <PackageReference Include="Observability.OpenTelemetry.AspNet" Version="1.0.19" />
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.3" />
+        <PackageReference Include="Common.Host" Version="1.0.13" />
+        <PackageReference Include="Observability.OpenTelemetry.AspNet" Version="1.0.22" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="10.1.0" />
     </ItemGroup>
 </Project>

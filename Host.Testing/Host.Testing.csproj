@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net9.0</TargetFramework>
+        <TargetFramework>net10.0</TargetFramework>
         <PackageId>WebApi.Host.Testing</PackageId>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
@@ -10,8 +10,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.3.0"/>
-        <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="9.0.7" />
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="10.0.2" />
     </ItemGroup>
 
     <ItemGroup>
