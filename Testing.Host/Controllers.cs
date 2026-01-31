@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
 using Microsoft.AspNetCore.Mvc;
+using WebHost;
 
 namespace Testing.Host;
 
@@ -36,16 +37,45 @@ public class ExceptionController : ControllerBase
     {
         throw new ApplicationException("Oh no!");
     }
-    
+
     [HttpPost]
     public IActionResult Post()
     {
         throw new ValidationException("bong");
-    }    
-    
+    }
+
     [HttpDelete]
     public IActionResult Delete()
     {
         throw new SerializationException("bing");
+    }
+}
+
+[ApiController]
+[Route("api/customexception")]
+public class CustomExceptionController : ControllerBase
+{
+    [HttpGet("notfound")]
+    public IActionResult GetNotFound()
+    {
+        throw new NotFoundException("Entity", "123");
+    }
+
+    [HttpPost("validation")]
+    public IActionResult PostValidation()
+    {
+        throw new ValidationException("validation error");
+    }
+
+    [HttpDelete("serialisation")]
+    public IActionResult DeleteSerialisation()
+    {
+        throw new SerializationException("serialisation error");
+    }
+
+    [HttpPut("unknown")]
+    public IActionResult PutUnknown()
+    {
+        throw new InvalidOperationException("unknown error");
     }
 }

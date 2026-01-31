@@ -1,7 +1,10 @@
 {
   "permissions": {
     "allow": [
-      "Bash(dotnet list:*)"
+      "Bash(dotnet list:*)",
+      "Bash(dir:*)",
+      "Bash(dotnet test:*)",
+      "Bash(Get-Content \"C:\\\\Users\\\\seanj\\\\.claude\\\\projects\\\\C--Users-seanj-repos-WebApiLibrary\\\\bbe50cf5-05d2-4a95-adea-371e16886704\\\\tool-results\\\\toolu_011duKVQTuiyMZpr7sd76dp9.txt\" -Tail 80)"
     ]
   }
 }

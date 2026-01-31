@@ -13,7 +13,15 @@ internal static class ExceptionHandling
 {
     internal static void EnforceDefaultExceptionHandling(this IServiceCollection services)
     {
-        services.Replace(ServiceDescriptor.Singleton(new ExceptionHandler()));
+        services.TryAddSingleton<ExceptionHandler>();
+    }
+}
+
+public static class ExceptionHandlingExtensions
+{
+    public static void UseExceptionHandler<T>(this IServiceCollection services) where T : ExceptionHandler, new()
+    {
+        services.AddSingleton<ExceptionHandler>(new T());
     }
     
     internal static void MapExceptionsToApiError(this IApplicationBuilder app)
@@ -38,7 +46,7 @@ internal static class ExceptionHandling
 
 public class ExceptionHandler
 {
-    public (HttpStatusCode, ApiError) HandleException(Exception exception)
+    public virtual (HttpStatusCode, ApiError) HandleException(Exception exception)
     {
         return exception switch
         {

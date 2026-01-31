@@ -36,6 +36,9 @@
       <Compile Update="WebApiCorsSteps.cs">
         <DependentUpon>WebApiCorsShould.cs</DependentUpon>
       </Compile>
+      <Compile Update="ExceptionHandlerSteps.cs">
+        <DependentUpon>ExceptionHandlerShould.cs</DependentUpon>
+      </Compile>
     </ItemGroup>
 
 </Project>

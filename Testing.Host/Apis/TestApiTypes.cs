@@ -4,5 +4,6 @@ public enum TestApiTypes
 {
     Default,
     AllowAllCors,
-    AllowNoCors
+    AllowNoCors,
+    CustomExceptionHandler
 }

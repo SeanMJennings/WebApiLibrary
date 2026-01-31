@@ -11,6 +11,7 @@ public static class TestApiFactory
             TestApiTypes.Default => new DefaultApi(builder, configuration),
             TestApiTypes.AllowAllCors => new AllowAllCorsApi(builder, configuration),
             TestApiTypes.AllowNoCors => new AllowNoCorsApi(builder, configuration),
+            TestApiTypes.CustomExceptionHandler => new CustomExceptionHandlerApi(builder, configuration),
             _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
         };
     }
